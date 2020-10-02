@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/tenders',[TendersController::class,'index']);
 Route::get('/addtender',[TendersController::class,'create']);

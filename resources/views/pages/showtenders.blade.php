@@ -82,10 +82,14 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Status') }}</label>
 
                             <div class="col-md-6">
-                                <input id="status" type="text" class="form-control" name="status" required autocomplete=""
-                                    autofocus>
-
-                            </div>
+                            {{-- <input id="status" type="text" class="form-control" name="status" required autocomplete="" value="{{class="btn btn-success"}}Approved"autofocus> --}}
+                            <select name="role" id="" class="form-control" style="left:30%;"  value="{{ old('role')}}" placeholder="" >
+                                <option class="">Approve</option>
+                                <option class="">Decline</option>
+                            </select>
+                            <button class="btn btn-success btn-sm">Approved</button>
+                        </div>
+                        
                         </div>
 
 
@@ -125,7 +129,16 @@
                                                     </tbody>
                                                 </table>
                                             </div>
+                                           
+
                                         </div>
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 offset-md-4">
+                                                <input class="btn btn-success user" type="Submit" name="Submit" style="margin-left:60%">
+                                               
+                  
+                                            </div>
+                                        </div><br>
                                     </div>
                                 </div>
                             </div>
@@ -133,12 +146,7 @@
                         </form>
 
                 </div>
-
-
-
             </div>
         </div>
     </div>
-   
-
 @endsection

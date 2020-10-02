@@ -74,6 +74,13 @@
 
                             </div>
                         </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <input class="btn btn-success user" type="Submit" name="Submit" style="margin-left:60%">
+                               
+  
+                            </div>
+                        </div><br> 
                     </form>
 
                 </div>
