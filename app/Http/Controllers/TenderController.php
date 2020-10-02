@@ -107,4 +107,28 @@ class TenderController extends Controller
     {
         $tender->delete();
     }
+
+    /**
+     * Approve the specified resource from storage.
+     *
+     * @param  \App\Models\Tender  $tender
+     * @return \Illuminate\Http\Response
+     */
+    public function approve(Tender $tender)
+    {
+        $tender->isApproved = true;
+        $tender->save();
+    }
+
+    /**
+     * Decline the specified resource from storage.
+     *
+     * @param  \App\Models\Tender  $tender
+     * @return \Illuminate\Http\Response
+     */
+    public function decline(Tender $tender)
+    {
+        $tender->isApproved = false;
+        $tender->save();
+    }
 }

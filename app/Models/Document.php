@@ -16,9 +16,14 @@ class Document extends Model
     {
         return $this->belongsTo(Tender::class);
     }
-    
+
     public function getUrlAttribute()
     {
         return Storage::url($this->url);
+    }
+
+    protected function creator()
+    {
+        return $this->belongsTo(User::class);
     }
 }

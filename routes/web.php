@@ -16,11 +16,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tenders','TenderController@index');
-Route::get('/addtender','TenderController@create');
-Route::post('/addtender','TenderController@store');
+Route::prefix('/tender')->group(function () {
+    Route::get('/','TenderController@index')->name('tender.index');
+    Route::get('/add','TenderController@create')->name('tender.create');
+    Route::post('/add','TenderController@store')->name('tender.store');
+    Route::get('/show','TenderController@show')->name('tender.show');
+    Route::get('/approve/{tender}','TenderController@approve')->name('tender.approve');
+    Route::get('/decline/{tender}','TenderController@decline')->name('tender.decline');
+    Route::get('/delete/{tender}','TenderController@delete')->name('tender.delete');
+});
 
-Route::get('/showtenders','TenderController@show');
 
 
 Auth::routes();
