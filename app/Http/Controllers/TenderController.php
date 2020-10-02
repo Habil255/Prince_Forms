@@ -94,7 +94,7 @@ class TenderController extends Controller
      */
     public function update(Request $request, Tender $tender)
     {
-        //
+        $tender->update([$request]);
     }
 
     /**
@@ -105,6 +105,6 @@ class TenderController extends Controller
      */
     public function destroy(Tender $tender)
     {
-        //
+        $tender->delete();
     }
 }
