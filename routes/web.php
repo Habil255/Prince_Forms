@@ -1,6 +1,4 @@
 <?php
-use App\Http\Controllers;
-use App\Http\Controllers\TendersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +14,16 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/tenders',[TendersController::class,'index']);
-Route::get('/addtender',[TendersController::class,'create']);
+Route::prefix('/tender')->group(function () {
+    Route::get('/','TenderController@index')->name('tender.index');
+    Route::get('/add','TenderController@create')->name('tender.create');
+    Route::post('/add','TenderController@store')->name('tender.store');
+    Route::get('/show','TenderController@show')->name('tender.show');
+    Route::get('/approve/{tender}','TenderController@approve')->name('tender.approve');
+    Route::get('/decline/{tender}','TenderController@decline')->name('tender.decline');
+    Route::get('/delete/{tender}','TenderController@delete')->name('tender.delete');
+});
 
-Route::get('/showtenders',[TendersController::class,'show']);
 
 
 Auth::routes();

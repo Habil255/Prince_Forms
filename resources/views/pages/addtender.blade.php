@@ -14,32 +14,32 @@
                     </div><br>
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                             <div class="col-md-6">
-                                <input id="company_name" type="text"
-                                    class="form-control @error('company_name') is-invalid @enderror" name="company_name"
-                                    value="{{ old('company_name') }}" required autocomplete="company_name" autofocus>
+                                <input id="title" type="text"
+                                    class="form-control @error('title') is-invalid @enderror" name="title"
+                                    value="{{ old('title') }}" required autocomplete="title" autofocus>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
+                            <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="company_name" type="text" class="form-control " name="company_name" required
+                                <input id="company_name" type="text" class="form-control " name="company_name" value="{{ old('company_name') }}" required
                                     autocomplete="company_name" autofocus>
 
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="name"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Announced Date') }}</label>
+                            <label for="announced_on"
+                                class="col-md-4 col-form-label text-md-right">{{ __('Announced On') }}</label>
 
                             <div class="col-md-6">
-                                <input id="announced_date" type="date" class="form-control" name="announced_date" required
-                                    autocomplete="company_name" autofocus>
+                                <input id="announced_on" type="date" class="form-control" name="announced_on" value="{{ old('announced_on') }}" required
+                                    autocomplete="announced_on" autofocus>
 
                             </div>
                         </div>
@@ -48,28 +48,28 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Deadline') }}</label>
 
                             <div class="col-md-6">
-                                <input id="deadline" type="date" class="form-control" name="deadline" required
+                                <input id="deadline" type="date" class="form-control" name="deadline" value="{{ old('deadline') }}" required
                                     autocomplete="" autofocus>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Deadline') }}</label>
+                            <label for="submitted_on" class="col-md-4 col-form-label text-md-right">{{ __('Submitted On') }}</label>
 
                             <div class="col-md-6">
-                                <input id="deadline" type="date" class="form-control" name="deadline" required
+                                <input id="submitted_on" type="date" class="form-control" name="submitted_on" value="{{ old('submitted_on') }}" required
                                     autocomplete="" autofocus>
 
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="name"
+                            <label for="document"
                                 class="col-md-4 col-form-label text-md-right">{{ __('Upload Document:') }}</label>
 
                             <div class="col-md-6">
-                                <input id="document" type="file" class="form-control" name="document" required
+                                <input id="document" type="file" class="form-control" name="document" value="{{ old('document') }}" required
                                     autocomplete="" autofocus>
 
                             </div>
