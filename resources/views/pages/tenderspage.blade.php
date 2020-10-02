@@ -1,6 +1,6 @@
 @extends('pages.main')
 @section('content')
-    
+
 
 
 
@@ -29,39 +29,25 @@
                 </tr>
               </thead>
               <tbody>
-                
-                <tr>
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td ><a href="" class="btn btn-success btn-sm" style="margin-top: 2%;">Approve</a><br>
-                    <a href="" class="btn btn-primary btn-sm" style="margin-top: 2%;">Decline</a><br>
-                    <a href="showtenders" class="btn btn-warning btn-sm" style="margin-top: 2%;">View</a><br>
-                    <a href="" class="btn btn-danger btn-sm" style="margin-top:2%; ">Delete</a>
-                  </td>
-                </tr>
-                <th></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td ><a href="" class="btn btn-success btn-sm" style="margin-top: 2%;">Approve</a><br>
-                  <a href="" class="btn btn-primary btn-sm" style="margin-top: 2%;">Decline</a><br>
-                  <a href="showtenders" class="btn btn-warning btn-sm" style="margin-top: 2%;">View</a><br>
-                  <a href="" class="btn btn-danger btn-sm" style="margin-top:2%; ">Delete</a>
-                </td>
-              </tr>
-                     
-                   
-               
+                  @foreach ($tenders as $tender)
+                  <tr>
+                    <th>{{ $tender->title }}</th>
+                    <td>{{ $tender->company_name }}</td>
+                    <td>{{ $tender->submitted_on }}</td>
+                    <td>{{ $tender->announced_on }}</td>
+                    <th>{{ $tender->deadline_on }}</th>
+                    <td>{{ $tender->title }}</td>
+                    <td>{{ $tender->title }}</td>
+                    <td>{{ $tender->title }}</td>
+                    <td >
+                      <a href="" class="btn btn-success btn-sm" style="margin-top: 2%;">Approve</a><br>
+                      <a href="" class="btn btn-primary btn-sm" style="margin-top: 2%;">Decline</a><br>
+                      <a href="showtenders" class="btn btn-warning btn-sm" style="margin-top: 2%;">View</a><br>
+                      <a href="" class="btn btn-danger btn-sm" style="margin-top:2%; ">Delete</a>
+                    </td>
+                  </tr>
+
+                  @endforeach
               </tbody>
             </table>
           </div>

@@ -1,6 +1,4 @@
 <?php
-use App\Http\Controllers;
-use App\Http\Controllers\TendersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tenders',[TendersController::class,'index']);
-Route::get('/addtender',[TendersController::class,'create']);
+Route::get('/tenders','TenderController@index');
+Route::get('/addtender','TenderController@create');
+Route::post('/addtender','TenderController@store');
 
-Route::get('/showtenders',[TendersController::class,'show']);
+Route::get('/showtenders','TenderController@show');
 
 
 Auth::routes();
