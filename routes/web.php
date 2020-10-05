@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::prefix('/tender')->group(function () {
+Route::prefix('/tender')->middleware('web')->group(function () {
     Route::get('/','TenderController@index')->name('tender.index');
     Route::get('/add','TenderController@create')->name('tender.create');
     Route::post('/add','TenderController@store')->name('tender.store');
@@ -24,8 +25,12 @@ Route::prefix('/tender')->group(function () {
     Route::get('/delete/{tender}','TenderController@delete')->name('tender.delete');
 });
 
+Route::get('/user', function(){
+    return User::all();
+});
 
+Route::get('/home', function(){
+    return redirect()->route('tender.index');
+});
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

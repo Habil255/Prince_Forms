@@ -17,6 +17,7 @@ class CreateDocumentsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('tender_id');
             $table->unsignedBigInteger('created_by_id');
+            $table->string('name');
             $table->string('url');
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class TenderController extends Controller
      */
     public function index()
     {
-        $tenders = Tender::get();
+        $tenders = Tender::with('creator')->get();
 
         return view('pages.tenderspage', compact('tenders'));
     }
@@ -43,20 +43,21 @@ class TenderController extends Controller
      */
     public function store(Request $request)
     {
-        $document = $request->file('document') ?? [];
+        $document = $request->file('document');
 
         $tender = Tender::create([
-            'created_by_id' => auth()->user(),
+            'created_by_id' => auth()->user()->id,
             'title' => $request->title,
             'company_name' => $request->company_name,
             'announced_on' => $request->announced_on,
-            'deadline_on' => $request->deadline_on,
+            'deadline_on' => $request->deadline,
             'submitted_on' => Carbon::now(),
-            'isApproved' => $request->isApproved,
+            'isApproved' => $request->isApproved ?? false,
         ]);
 
         $tender->document()->create([
-            'created_by_id' => auth()->user(),
+            'created_by_id' => auth()->user()->id,
+            'name' => $document->getClientOriginalName(),
             'url' => $document->store('public/documents'),
         ]);
 

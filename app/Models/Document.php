@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Document extends Model
 {
@@ -17,13 +17,13 @@ class Document extends Model
         return $this->belongsTo(Tender::class);
     }
 
-    public function getUrlAttribute()
+    public function getUrlsAttribute()
     {
         return Storage::url($this->url);
     }
 
     protected function creator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }

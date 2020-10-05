@@ -1,4 +1,4 @@
-@extends('pages.main')
+@extends('layouts.app')
 @section('content')
 
 
@@ -38,13 +38,13 @@
                     <th>{{ $tender->deadline_on }}</th>
                     <td>
                         @foreach ($tender->document as $document)
-                        <a href="{{ $document->url }}">{{ $document->url }}</a>
+                        <a href="{{ $document->urls }}">{{ $document->name }}</a>
                         @endforeach
                     </td>
                     <td>
                         {{ $tender->isApproved ? 'Approved' : 'Denied' }}
                     </td>
-                    <td>{{ $tender->creator }}</td>
+                    <td>{{ $tender->creator->name }}</td>
                     <td >
                         @if (auth()->user()->role == "Employer" )
                         <a href="tender/approve/{{ $tender->id }}" class="btn btn-success btn-sm" style="margin-top: 2%;">Approve</a><br>

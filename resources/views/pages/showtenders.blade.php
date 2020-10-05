@@ -1,4 +1,4 @@
-@extends('pages.main')
+@extends('layouts.app')
 @section('content')
 
     <div class="container" style="width: 1000px; margin-top:10%; margin-left:20%;">
@@ -11,6 +11,7 @@
                         </h3>
                     </div><br>
                     <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
@@ -89,7 +90,7 @@
                             </select>
                             <button class="btn btn-success btn-sm">Approved</button>
                         </div>
-                        
+
                         </div>
 
 
@@ -129,14 +130,14 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                           
+
 
                                         </div>
                                         <div class="form-group row mb-0">
                                             <div class="col-md-6 offset-md-4">
                                                 <input class="btn btn-success user" type="Submit" name="Submit" style="margin-left:60%">
-                                               
-                  
+
+
                                             </div>
                                         </div><br>
                                     </div>

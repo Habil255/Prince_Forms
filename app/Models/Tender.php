@@ -16,8 +16,8 @@ class Tender extends Model
         return $this->hasMany(Document::class);
     }
 
-    protected function creator()
+    public function creator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }
